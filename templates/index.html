@@ -1,9 +1,139 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1>Live Streaming</h1>
-        <div>
-            <img src="{{url_for('video') }}" width="50%">
-        </div>
-    </body>
+
+<head>
+    
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            max-width: 100vw;
+            max-height: 100vh;
+            background: linear-gradient(354deg, rgba(19, 0, 28, 1) 18%, rgba(0, 95, 158, 1) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        #nav{
+            height: 20%;
+            margin-bottom: 20px;
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        #logo{
+            height:100%;
+        }
+        #nav h1{
+            margin-left: 20px;
+        
+            font-family:'Courier New', Courier, monospace
+        }
+
+        /* svg {
+            position: absolute;
+            z-index: -1;
+            overflow:hidden;
+
+        }
+
+
+        .wave {
+            width: 100%;
+            left: 0;
+            bottom: 0;
+        }
+
+        .blob {
+            left: 0px;
+            top: 0px;
+            opacity: 20%;
+            width: 70rem;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <img id="logo" src="static\ASL.png"></img>
+        
+        <h1>Learn American Sign Language</h1>
+    </div>
+    <img id="webcam" src="{{url_for('video') }}" width="50%">
+    
+<!-- 
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00cba9" fill-opacity="0.2" d="M0,0L24,42.7C48,85,96,171,144,197.3C192,224,240,192,288,149.3C336,107,384,53,432,32C480,11,528,21,576,32C624,43,672,53,720,69.3C768,85,816,107,864,117.3C912,128,960,128,1008,138.7C1056,149,1104,171,1152,181.3C1200,192,1248,192,1296,202.7C1344,213,1392,235,1416,245.3L1440,256L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"></path></svg>
+    <svg class="wave" style="width: 200%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#a2d9ff" fill-opacity="0.2" d="M0,256L18.5,266.7C36.9,277,74,299,111,298.7C147.7,299,185,277,222,250.7C258.5,224,295,192,332,154.7C369.2,117,406,75,443,58.7C480,43,517,53,554,69.3C590.8,85,628,107,665,106.7C701.5,107,738,85,775,90.7C812.3,96,849,128,886,122.7C923.1,117,960,75,997,80C1033.8,85,1071,139,1108,170.7C1144.6,203,1182,213,1218,224C1255.4,235,1292,245,1329,250.7C1366.2,256,1403,256,1422,256L1440,256L1440,320L1421.5,320C1403.1,320,1366,320,1329,320C1292.3,320,1255,320,1218,320C1181.5,320,1145,320,1108,320C1070.8,320,1034,320,997,320C960,320,923,320,886,320C849.2,320,812,320,775,320C738.5,320,702,320,665,320C627.7,320,591,320,554,320C516.9,320,480,320,443,320C406.2,320,369,320,332,320C295.4,320,258,320,222,320C184.6,320,148,320,111,320C73.8,320,37,320,18,320L0,320Z"></path></svg>
+    <svg class="blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#3a005e" d="M35.8,-68.8C42.5,-58.1,41.3,-40.7,41,-28C40.6,-15.4,41.2,-7.7,45.2,2.3C49.1,12.3,56.6,24.7,54.7,33.5C52.9,42.3,41.7,47.6,31,52C20.4,56.4,10.2,60,-0.8,61.4C-11.9,62.9,-23.7,62.2,-36.1,58.8C-48.4,55.3,-61.2,49.1,-68.8,38.8C-76.3,28.5,-78.5,14.3,-69.9,5C-61.2,-4.2,-41.6,-8.5,-34.4,-19.3C-27.2,-30.2,-32.4,-47.7,-28.7,-60.1C-25.1,-72.5,-12.5,-79.9,1,-81.6C14.6,-83.4,29.1,-79.5,35.8,-68.8Z" transform="translate(100 100)" />
+    </svg> -->
+
+    <script>
+        const sayings = [
+            "An apple a day keeps the doctor away",
+            "The cow jumped over the moon",
+            "Actions speak louder than words",
+            "Beauty is in the eye of the beholder",
+            "Every cloud has a silver lining",
+            "Fortune favors the bold",
+            "Haste makes waste",
+            "Ignorance is bliss",
+            "Kill two birds with one stone",
+            "Laughter is the best medicine",
+            "Money cannot buy happiness",
+            "No pain no gain",
+            "Opportunity knocks only once",
+            "Practice makes perfect",
+            "Quality over quantity",
+            "The early bird catches the worm",
+            "Unity is strength",
+            "Variety is the spice of life",
+            "When in Rome do as the Romans do",
+            "Zero in on your target",
+            "An eye for an eye makes the whole world blind",
+            "IOJDPOIJFSDIOPJFNDSPOIFJOISDMFIOAJP",
+        ]
+
+        const 
+
+        const generate = () => {
+        const saying = sayings[Math.floor(Math.random()*sayings.length)]
+        toTypeValue = saying
+        setToType(saying)
+        setTyped("")
+        typedValue = ""
+    }
+
+    const fillText = (letter) => {
+        if (toTypeValue.length > 0) {
+            if (letter.toLowerCase() === toTypeValue.charAt(0).toLowerCase()) {
+                if (toTypeValue.charAt(0) == toTypeValue.charAt(0).toUpperCase()) {
+                    letter = letter.toUpperCase()
+                } else {
+                    letter = letter.toLowerCase()
+                }
+                typedValue = typedValue + letter
+                setTyped(typedValue)
+                toTypeValue = toTypeValue.substring(1)
+                setToType(toTypeValue)
+                console.log("typed: " + typed  + "       totype: " + toType)
+                if (toTypeValue.length == 0) {
+                    generate()
+                } else if (toTypeValue.charAt(0) === " ") {
+                    fillText(" ")
+                } else {
+                    var audio = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");  
+                    audio.play();
+                }
+            }
+        }
+    }
+    </script>
+
+</body>
+
+
 </html>

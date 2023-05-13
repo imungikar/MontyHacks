@@ -1,0 +1,13 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height:100vh;
+    background: linear-gradient(354deg, rgba(19,0,28,1) 18%, rgba(0,95,158,1) 100%);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+}
