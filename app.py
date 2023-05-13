@@ -2,6 +2,7 @@ from flask import Flask,render_template,Response
 import cv2
 from test import getASL
 
+#running the project: $env:FLASK_APP = "app.py" $env:FLASK_DEVELOPMENT = "development" flask run
 app=Flask(__name__)
 camera=cv2.VideoCapture(0)
 
